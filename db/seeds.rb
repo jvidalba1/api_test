@@ -3,5 +3,14 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+  categories = Category.create([
+    { en: 'Technology', es: 'Tecnologia' }, 
+    { en: 'Personal care', es: 'Cuidado personal' }, 
+    { en: 'Comida', es: 'Food' }
+  ])
+  Product.create(name: 'Cellphone', price: 710.00, image: "url_image_cellphone", category: categories.first)
+  Product.create(name: 'TV plasma', price: 755.50, image: "url_image_tv", category: categories.first)
+  Product.create(name: 'Shampoo dark hair', price: 25.50, image: "url_image_shampoo", category: categories.second)
+  Product.create(name: 'Pasta', price: 13.00,  image: "url_image_pasta")
+  Product.create(name: 'Bacon junk food', price: 21.50,  image: "url_image_bacon")
+  Product.create(name: 'Bread with pasas', price: 17.00,  image: "url_image_bread")
