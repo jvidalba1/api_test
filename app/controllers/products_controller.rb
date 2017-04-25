@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
-  def index
+  def suggestions
+    p "oeeeee>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @products = if suggestion_params[:cat] 
       @products = Product.joins(:category).where("categories.es LIKE '%#{suggestion_params[:cat]}%'")
       @products.where("name LIKE '%#{suggestion_params[:q]}%'")
     else
-      Product.where("name LIKE '%#{suggestion_params[:q]}%'")
+      Product.includes(:category).where("name LIKE '%#{suggestion_params[:q]}%'")
     end
 
     if suggestion_params[:maxprice].present? && suggestion_params[:minprice].present?
